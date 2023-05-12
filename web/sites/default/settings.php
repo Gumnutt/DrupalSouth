@@ -18,10 +18,10 @@ $settings['file_scan_ignore_directories'] = [
 $settings['config_sync_directory'] = '../config/sync';
 
 // Include a generic Platform.sh settings file if remote.
-// $platformsh = new \Platformsh\ConfigReader\Config();
-// if ($platformsh->isValidPlatform()) {
-//   include_once $app_root . '/' . $site_path . '/platformsh.settings.php';
-// }
+$platformsh = new \Platformsh\ConfigReader\Config();
+if ($platformsh->isValidPlatform()) {
+  include_once $app_root . '/' . $site_path . '/platformsh.settings.php';
+}
 
 // Include a generic Lando file if local.
 if (getenv('LANDO') == 'ON') {

@@ -25,7 +25,8 @@
         "drupal/gin_toolbar": "^1.0@RC",
         "drupal/webform": "^6.2@beta",
         "drupal/webform_rest": "^4.0",
-        "drush/drush": "^11.5"
+        "drush/drush": "^11.5",
+        "platformsh/config-reader": "^2.4"
     },
     "conflict": {
         "drupal/drupal": "*"
