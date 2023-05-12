@@ -1,0 +1,22 @@
+uuid: 56c0c323-da67-4f5a-a30b-af06752beb51
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - drupal_south
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: drupal_south_powered
+theme: drupal_south
+region: footer_bottom
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }

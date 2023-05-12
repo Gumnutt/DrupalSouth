@@ -1,0 +1,22 @@
+uuid: d85e6ec3-d501-42d6-9963-21fc2000a24b
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - drupal_south
+_core:
+  default_config_hash: erQSEZF2XUjNmgTl0uNRBzmg18ZGXwUcw2FhApoeuHk
+id: drupal_south_content
+theme: drupal_south
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

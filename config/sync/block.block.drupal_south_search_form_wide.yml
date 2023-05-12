@@ -1,0 +1,23 @@
+uuid: d9ed4ddf-89d0-4748-9c4b-e7cfbed5dd0d
+langcode: en
+status: false
+dependencies:
+  module:
+    - search
+  theme:
+    - drupal_south
+_core:
+  default_config_hash: imMyHD6LYci0gtXq56qr9ZKGHzbEG9uFydrN5EhKtSU
+id: drupal_south_search_form_wide
+theme: drupal_south
+region: secondary_menu
+weight: -5
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form (wide)'
+  label_display: '0'
+  provider: search
+  page_id: ''
+visibility: {  }

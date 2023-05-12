@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: VDJxTZtQR21qB4lvOq8zszJZLvLKrSPQpdn2E3T71Ww
+langcode: en
+uuid: 3bf1072a-d460-459e-8715-69e7d1a09b3c
+name: 'Drupal south'
+mail: me@brynnthe.dev
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /webform/drupal_south
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en

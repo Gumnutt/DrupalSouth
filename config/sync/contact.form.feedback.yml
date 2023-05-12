@@ -1,0 +1,14 @@
+uuid: 9ff2b721-62d6-4dc3-9a1c-1156031b8efe
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - me@brynnthe.dev
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

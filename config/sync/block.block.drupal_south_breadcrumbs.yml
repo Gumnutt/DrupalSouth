@@ -1,0 +1,22 @@
+uuid: 00be280a-f894-49df-a646-1d042f26d33b
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - drupal_south
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: drupal_south_breadcrumbs
+theme: drupal_south
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

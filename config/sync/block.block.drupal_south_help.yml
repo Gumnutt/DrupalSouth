@@ -1,0 +1,22 @@
+uuid: 5909c9e0-ffbf-4810-8aec-476d8ec95bed
+langcode: en
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - drupal_south
+_core:
+  default_config_hash: VfPFqqxfkomud5CO8DUijw85QIl9GIxh_nIxLOYESxg
+id: drupal_south_help
+theme: drupal_south
+region: content_above
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

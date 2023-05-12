@@ -1,0 +1,22 @@
+uuid: 2f43d57d-0105-4562-9ccd-ebd974290ccc
+langcode: en
+status: false
+dependencies:
+  theme:
+    - drupal_south
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: drupal_south_primary_local_tasks
+theme: drupal_south
+region: highlighted
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

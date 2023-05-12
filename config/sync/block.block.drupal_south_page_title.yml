@@ -1,0 +1,20 @@
+uuid: f0cf49dc-9927-4cc7-ab0b-d2f9061cf82a
+langcode: en
+status: false
+dependencies:
+  theme:
+    - drupal_south
+_core:
+  default_config_hash: 6aOgWsNTXjqrDm98TXSAjP6qd2nCijD1xw45MrnbK-Y
+id: drupal_south_page_title
+theme: drupal_south
+region: content_above
+weight: -5
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }
