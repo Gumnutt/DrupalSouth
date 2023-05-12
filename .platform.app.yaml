@@ -58,7 +58,7 @@ hooks:
     rm /app/drush/drush.yml
     # Install node per .node-version.
     n auto && hash -r
-    cd web/themes/custom/ia_demo
+    cd web/themes/custom/drupal_south
       yarn
       yarn build
 
