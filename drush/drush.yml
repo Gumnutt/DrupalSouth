@@ -2,4 +2,4 @@
 # A Drush configuration file
 
 options:
-  uri: "https://ia-demo.lndo.site/"
+  uri: "https://drupal-south.lndo.site/"
