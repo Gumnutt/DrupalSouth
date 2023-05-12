@@ -47,6 +47,7 @@ default.settings.php
 .DS_Store
 .phpunit.result.cache
 *.sql
+*.gz
 .vscode
 cypress/videos
 cypress/screenshots
