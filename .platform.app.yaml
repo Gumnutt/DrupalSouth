@@ -1,0 +1,113 @@
+name: "drupal"
+type: "php:8.1"
+
+dependencies:
+  php:
+    composer/composer: "^2"
+  nodejs:
+    n: "*"
+    yarn: "1.22.19"
+
+variables:
+  env:
+    N_PREFIX: /app/.global
+    php:
+      memory_limit: "128M"
+      display_errors: "0"
+      display_startup_errors: "0"
+
+runtime:
+  extensions:
+    - redis
+    - sodium
+    - apcu
+    # - blackfire
+
+relationships:
+  database: "db:mysql"
+  redis: "cache:redis"
+
+disk: 2048
+
+mounts:
+  "/web/sites/default/files":
+    source: local
+    source_path: "files"
+  "/tmp":
+    source: local
+    source_path: "tmp"
+  "/private":
+    source: local
+    source_path: "private"
+  "/.drush":
+    source: local
+    source_path: "drush"
+  "/drush-backups":
+    source: local
+    source_path: "drush-backups"
+  "/.console":
+    source: local
+    source_path: "console"
+
+build:
+  flavor: composer
+
+hooks:
+  build: |
+    set -e
+    rm /app/drush/drush.yml
+    # Install node per .node-version.
+    n auto && hash -r
+    cd web/themes/custom/ia_demo
+      yarn
+      yarn build
+
+  deploy: |
+    set -e
+    php ./drush/platformsh_generate_drush_yml.php
+    cd web
+    $PLATFORM_APP_DIR/drush/platformsh_deploy_drupal.sh
+
+web:
+  locations:
+    "/":
+      root: "web"
+      expires: 5m
+      passthru: "/index.php"
+      allow: false
+      rules:
+        # Allow access to common static files.
+        '\.(jpe?g|png|gif|svgz?|css|js|map|ico|bmp|eot|woff2?|otf|ttf)$':
+          allow: true
+        '^/robots\.txt$':
+          allow: true
+        '^/sitemap\.xml$':
+          allow: true
+        # Deny direct access to configuration files.
+        '^/sites/sites\.php$':
+          scripts: false
+        '^/sites/[^/]+/settings.*?\.php$':
+          scripts: false
+
+    "/sites/default/files":
+      allow: true
+      expires: 5m
+      passthru: "/index.php"
+      root: "web/sites/default/files"
+      scripts: false
+      rules:
+        # Provide a longer TTL (2 weeks) for aggregated CSS and JS files.
+        "^/sites/default/files/(css|js)":
+          expires: 2w
+
+crons:
+  # Run Drupal's cron tasks every 19 minutes.
+  drupal:
+    spec: "*/19 * * * *"
+    commands:
+      start: "cd web ; drush core-cron"
+  # Import from GC once per hour in the demo.
+  gathercontent-sync:
+    spec: "12 * * * *"
+    commands:
+      start: "cd web ; drush gc-i 3049582 0 0"

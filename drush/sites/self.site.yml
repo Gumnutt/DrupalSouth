@@ -1,0 +1,9 @@
+prod:
+  host: ssh.au-2.platform.sh
+  user: oz76p2qs5jkhi-main-bvxea6i--drupal
+  platformsh-cli-auto-remove: true
+  uri: "https://main-bvxea6i-oz76p2qs5jkhi.au-2.platformsh.site/"
+  root: /app/web
+  paths:
+    drush-script: /app/vendor/bin/drush
+    files: sites/default/files

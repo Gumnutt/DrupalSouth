@@ -1,0 +1,8 @@
+# The routes of the project.
+"https://{default}/":
+    type: upstream
+    upstream: drupal:http
+    cache:
+      enabled: true
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+

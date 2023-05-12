@@ -1,0 +1,11 @@
+# The services of the Platform.sh project.
+#
+# Are these values the latest?
+# @see https://github.com/platformsh-templates/drupal10/blob/master/.platform/services.yaml
+
+db:
+  type: mariadb:10.4
+  disk: 1024
+
+cache:
+  type: redis:6.0
