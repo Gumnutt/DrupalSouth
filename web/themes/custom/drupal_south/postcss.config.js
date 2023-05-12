@@ -3,27 +3,27 @@ module.exports = {
     require("postcss-nested"),
     require("postcss-custom-media"),
     require("postcss-font-magician")({
-      hosted: ["./public/fonts", "/fonts"],
+      hosted: ["./public/fonts", "/themes/custom/drupal_south/public/fonts"],
       custom: {
         "ClashDisplay-Variable": {
           variants: {
             normal: {
               400: {
                 url: {
-                  woff2: "/fonts/ClashDisplay-Variable.woff2",
-                  woff: "/fonts/ClashDisplay-Variable.woff",
+                  woff2: "/themes/custom/drupal_south/public/fonts/ClashDisplay-Variable.woff2",
+                  woff: "/themes/custom/drupal_south/public/fonts/ClashDisplay-Variable.woff",
                 },
               },
               700: {
                 url: {
-                  woff2: "/fonts/ClashDisplay-Variable.woff2",
+                  woff2: "/themes/custom/drupal_south/public/fonts/ClashDisplay-Variable.woff2",
                 },
               },
             },
             italic: {
               400: {
                 url: {
-                  woff2: "/fonts/ClashDisplay-Variable.woff2",
+                  woff2: "/themes/custom/drupal_south/public/fonts/ClashDisplay-Variable.woff2",
                 },
               },
             },
