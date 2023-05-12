@@ -1,0 +1,7 @@
+name: "Drupal South Webform"
+type: module
+description: "Provides webform extensions"
+package: "DS"
+core_version_requirement: ^10
+dependencies:
+  - "webform:webform"

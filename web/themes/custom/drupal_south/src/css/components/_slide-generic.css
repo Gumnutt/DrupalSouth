@@ -1,0 +1,49 @@
+[data-slide="what-is-user-experience"] {
+  --bg: var(--green);
+  .grid {
+    aspect-ratio: unset;
+  }
+  h1 {
+    --shadow-color: black;
+    font-style: italic;
+    color: white;
+    text-shadow: -1px 1px var(--shadow-color), -2px 2px var(--shadow-color), -3px 3px var(--shadow-color), -4px 4px var(--shadow-color),
+      -5px 5px var(--shadow-color), -6px 6px var(--shadow-color), -7px 7px var(--shadow-color), -8px 8px var(--shadow-color),
+      -9px 9px var(--shadow-color), -10px 10px var(--shadow-color);
+  }
+}
+
+[data-slide="so-whats-the-issue-with-drupal-webforms"] {
+  background: var(--orange);
+}
+
+[data-slide="take-the-good-and-replace-the-bad"] {
+  background: var(--blue);
+}
+
+[data-slide="visual-aid"] {
+  .grid {
+    --col-number: 1;
+  }
+}
+
+[data-slide="normal-webforms"] {
+  .grid {
+    --col-number: 1;
+    padding: 0;
+  }
+  h1 {
+    position: absolute;
+    transform: skewY(-10deg);
+    padding: 1rem;
+    background: #000;
+    font-variation-settings: "wght" 700;
+  }
+}
+
+[data-slide="take-the-good-and-replace-the-bad"] {
+  p,
+  li {
+    color: white;
+  }
+}

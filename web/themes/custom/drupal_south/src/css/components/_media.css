@@ -1,0 +1,10 @@
+.media--wrapper {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(var(--column-count), 1fr);
+  grid-template-rows: repeat(var(--column-count), 1fr);
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}

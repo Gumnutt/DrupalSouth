@@ -1,0 +1,52 @@
+# Composer / scaffold.
+/drush/contrib/
+/vendor/
+/web/core/
+/web/modules/contrib/
+/web/themes/contrib/
+/web/profiles/contrib/
+/web/libraries/
+console/
+/.csslintrc
+/.eslintignore
+/.eslintrc.json
+/.ht.router.php
+/.htaccess
+/INSTALL.txt
+/README.txt
+/autoload.php
+/example.gitignore
+/index.php
+/robots.txt
+/update.php
+/web.config
+
+# Theme.
+node_modules
+web/themes/custom/*/dist
+
+# Assets.
+web/sites/default/files
+
+# Development.
+local.settings.php
+local.services.yml
+/local
+/web/*/local
+/tmp
+/private
+.drush
+drush-backups
+.console
+/.editorconfig
+default.services.yml
+default.settings.php
+/web/sites/simpletest
+/.idea/
+/.env
+.DS_Store
+.phpunit.result.cache
+*.sql
+.vscode
+cypress/videos
+cypress/screenshots

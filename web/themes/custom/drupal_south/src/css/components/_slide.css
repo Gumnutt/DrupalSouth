@@ -1,0 +1,40 @@
+@property --y {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+
+.slide {
+  overflow: hidden;
+  height: calc(100vh - var(--gin-toolbar-secondary-height, 0px));
+  max-height: calc(100vh - var(--gin-toolbar-secondary-height, 0px));
+  background: var(--bg, var(--bg-default));
+  @container style(--bg-default: var(--blue)) {
+    p,
+    li {
+      color: white;
+    }
+  }
+  .grid {
+    --col-number: 2;
+    display: grid;
+    margin: auto;
+    height: 100%;
+    padding-inline: 6rem;
+    place-items: center;
+    grid-template-columns: repeat(var(--col-number, 2), 1fr);
+    aspect-ratio: unset;
+    gap: 4rem;
+  }
+  h1 {
+    --shadow-color: black;
+    font-style: italic;
+    line-height: 1;
+    color: white;
+    text-shadow: -1px 1px var(--shadow-color), -2px 2px var(--shadow-color), -3px 3px var(--shadow-color), -4px 4px var(--shadow-color),
+      -5px 5px var(--shadow-color), -6px 6px var(--shadow-color), -7px 7px var(--shadow-color), -8px 8px var(--shadow-color),
+      -9px 9px var(--shadow-color), -10px 10px var(--shadow-color);
+    -webkit-text-stroke: 0px black;
+    text-stroke: 0px black;
+  }
+}

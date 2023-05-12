@@ -1,0 +1,128 @@
+@property --xpos {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --ypos {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 0;
+}
+@property --shadow-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: #ffffff;
+}
+
+[data-slide="about-me"] {
+  background-color: var(--yellow);
+  .grid {
+    --col-number: 1;
+    display: grid;
+    overflow: hidden;
+    height: 100%;
+    max-height: calc(100vh - var(--gin-toolbar-secondary-height, 0px));
+    place-items: center;
+  }
+  h1 {
+    position: relative;
+    z-index: 2;
+    margin-left: -300px;
+    -webkit-text-stroke: unset;
+    text-stroke: unset;
+    text-shadow: unset;
+  }
+  .highlight {
+    --shadow-color: var(--blue);
+    z-index: -1;
+    transform: translate3d(calc(var(--xpos) * 1px), calc(var(--ypos) * 1px), 0);
+    animation: pump 1000ms cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite, colorRotate 1000ms cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite 700ms,
+      flyin 700ms cubic-bezier(0.785, 0.135, 0.15, 0.86);
+    color: black;
+    text-shadow: var(--shadow);
+  }
+}
+@keyframes flyin {
+  0% {
+    --xpos: -1000;
+    --ypos: 1000;
+  }
+  100% {
+    --xpos: 0;
+    --ypos: 0;
+  }
+}
+
+@keyframes pump {
+  0% {
+    --xpos: -10;
+    --ypos: 10;
+  }
+  25% {
+    --xpos: 0;
+    --ypos: 0;
+  }
+  50% {
+    --xpos: -10;
+    --ypos: 10;
+  }
+  75% {
+    --xpos: 0;
+    --ypos: 0;
+  }
+  100% {
+    --xpos: -10;
+    --ypos: 10;
+  }
+}
+
+@keyframes colorRotate {
+  0% {
+    --shadow-color: var(--blue);
+  }
+  25% {
+    --shadow-color: var(--orange);
+  }
+  50% {
+    --shadow-color: var(--pink);
+  }
+  75% {
+    --shadow-color: var(--green);
+  }
+  100% {
+    --shadow-color: white;
+  }
+}
+
+@keyframes multiColorRotate {
+  20% {
+    --shadow-color-1: var(--blue);
+    --shadow-color-2: var(--orange);
+    --shadow-color-3: var(--green);
+    --shadow-color-4: var(--pink);
+  }
+  40% {
+    --shadow-color-1: var(--orange);
+    --shadow-color-2: var(--pink);
+    --shadow-color-3: var(--blue);
+    --shadow-color-4: var(--green);
+  }
+  60% {
+    --shadow-color-1: var(--pink);
+    --shadow-color-2: var(--blue);
+    --shadow-color-3: var(--green);
+    --shadow-color-4: var(--orange);
+  }
+  80% {
+    --shadow-color-1: var(--green);
+    --shadow-color-2: var(--orange);
+    --shadow-color-3: var(--pink);
+    --shadow-color-4: var(--blue);
+  }
+  100% {
+    --shadow-color-1: var(--orange);
+    --shadow-color-2: var(--green);
+    --shadow-color-3: var(--pink);
+    --shadow-color-4: var(--blue);
+  }
+}

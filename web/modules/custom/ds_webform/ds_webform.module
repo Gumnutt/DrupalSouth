@@ -1,0 +1,27 @@
+<?php
+use Drupal\Core\Form\FormStateInterface;
+
+
+/**
+ * @param $form
+ * @param FormStateInterface $form_state
+ * @return void
+ */
+function ds_webform_webform_third_party_settings_form_alter(&$form, FormStateInterface $form_state) {
+  /** @var \Drupal\webform\WebformInterface $webform */
+  $webform = $form_state->getFormObject()->getEntity();
+
+  $form['third_party_settings']['#weight'] = -11;
+  $form['third_party_settings']['#title'] = t('Form extras');
+  $form['third_party_settings']['#open'] = true;
+  $form['third_party_settings']['drupal_south_webform'] = [
+    '#type' => 'container',
+  ];
+
+
+  $form['third_party_settings']['drupal_south_webform']['modern_form'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Enable modern frontend experience'),
+    '#default_value' => $webform->getThirdPartySetting('drupal_south_webform', 'modern_form'),
+  ];
+}

@@ -1,0 +1,32 @@
+{
+  "name": "drupalsouth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.6",
+    "postcss-font-magician": "^3.0.0",
+    "prettier": "^2.5.1",
+    "vite": "^2.7.2",
+    "vite-plugin-live-reload": "^2.1.0"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vitejs/plugin-vue": "^2.3.1",
+    "@vue/compiler-sfc": "^3.2.33",
+    "autoprefixer": "^10.4.5",
+    "axios": "^0.25.0",
+    "css-paint-polyfill": "^3.3.0",
+    "lodash": "^4.17.21",
+    "postcss-custom-media": "^9.1.2",
+    "postcss-nested": "^6.0.1",
+    "vue": "^3.2.30",
+    "vue-dompurify-html": "^3.0.0-beta.2"
+  }
+}
