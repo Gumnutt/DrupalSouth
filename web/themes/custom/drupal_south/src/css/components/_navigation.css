@@ -1,5 +1,8 @@
 .navigation {
   position: absolute;
   z-index: calc(infinity + 1);
-  bottom: 0;
+  bottom: 38px;
+  @media (--md) {
+    bottom: 0;
+  }
 }

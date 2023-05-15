@@ -21,16 +21,20 @@
     display: grid;
     overflow: hidden;
     height: 100%;
-    max-height: calc(100vh - var(--gin-toolbar-secondary-height, 0px));
+    max-height: calc(100svh - var(--gin-toolbar-secondary-height, 0px));
     place-items: center;
   }
   h1 {
     position: relative;
     z-index: 2;
-    margin-left: -300px;
+    font-size: clamp(2rem, 22vw, 10rem);
     -webkit-text-stroke: unset;
     text-stroke: unset;
     text-shadow: unset;
+    @media (--md) {
+      margin-left: -300px;
+      font-size: clamp(2rem, 7vw, 10rem);
+    }
   }
   .highlight {
     --shadow-color: var(--blue);

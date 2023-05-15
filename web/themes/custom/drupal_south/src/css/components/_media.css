@@ -1,10 +1,18 @@
 .media--wrapper {
   display: grid;
   width: 100%;
+
   grid-template-columns: repeat(var(--column-count), 1fr);
   grid-template-rows: repeat(var(--column-count), 1fr);
+  &.wrapper-fill {
+    height: 100%;
+  }
   img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    @media (--md) {
+      object-fit: unset;
+    }
   }
 }

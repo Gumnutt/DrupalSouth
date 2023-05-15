@@ -1,0 +1,5 @@
+@custom-media --sm (min-width: 36rem);
+@custom-media --md (min-width: 48rem);
+@custom-media --lg (min-width: 62rem);
+@custom-media --xl (min-width: 75rem);
+@custom-media --highContrast (prefers-contrast: more);

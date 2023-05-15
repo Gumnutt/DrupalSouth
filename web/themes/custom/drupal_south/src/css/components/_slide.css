@@ -6,8 +6,8 @@
 
 .slide {
   overflow: hidden;
-  height: calc(100vh - var(--gin-toolbar-secondary-height, 0px));
-  max-height: calc(100vh - var(--gin-toolbar-secondary-height, 0px));
+  height: calc(100svh - var(--gin-toolbar-secondary-height, 0px));
+  max-height: calc(100svh - var(--gin-toolbar-secondary-height, 0px));
   background: var(--bg, var(--bg-default));
   @container style(--bg-default: var(--blue)) {
     p,
@@ -16,15 +16,23 @@
     }
   }
   .grid {
-    --col-number: 2;
-    display: grid;
+    --col-number: 1;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     margin: auto;
     height: 100%;
-    padding-inline: 6rem;
+    padding-inline: 2rem;
     place-items: center;
-    grid-template-columns: repeat(var(--col-number, 2), 1fr);
     aspect-ratio: unset;
-    gap: 4rem;
+    gap: 2rem;
+    @media (--md) {
+      --col-number: 2;
+      display: grid;
+      padding-inline: 6rem;
+      gap: 4rem;
+      grid-template-columns: repeat(var(--col-number, 2), 1fr);
+    }
   }
   h1 {
     --shadow-color: black;

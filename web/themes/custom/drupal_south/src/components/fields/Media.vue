@@ -1,5 +1,5 @@
 <template>
-  <div class="media--wrapper" :style="`--column-count: ${columnCount}`">
+  <div class="media--wrapper" :style="`--column-count: ${columnCount}`" :class="columnCount > 1 ? 'wrapper-fill' : ' '">
     <img :src="content" v-for="i in columnCount * columnCount" :key="i" />
   </div>
 </template>
@@ -18,9 +18,31 @@ export default {
       default: false,
     },
   },
+  data() {
+    return {
+      screenWidth: 0,
+    }
+  },
+  mounted() {
+    this.updateScreenWidth()
+    this.onScreenResize()
+  },
   computed: {
     columnCount() {
+      if (this.screenWidth < 768) {
+        return this.extras.imageRepeat ? 2 : 1
+      }
       return this.extras.imageRepeat ? this.extras.imageRepeat : 1
+    },
+  },
+  methods: {
+    onScreenResize() {
+      window.addEventListener("resize", () => {
+        this.updateScreenWidth()
+      })
+    },
+    updateScreenWidth() {
+      this.screenWidth = window.innerWidth
     },
   },
 }

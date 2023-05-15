@@ -53,10 +53,13 @@
 .highlight {
   position: absolute;
   z-index: 50;
-  display: inline-block;
-  margin-left: 2rem;
+  display: block;
   color: white;
   text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+  @media (--md) {
+    display: inline-flex;
+    margin-left: 2rem;
+  }
   &:nth-child(2) {
     --x: 0;
     --z: -15px;
