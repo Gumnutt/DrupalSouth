@@ -30,7 +30,7 @@
     font-size: clamp(2rem, 22vw, 10rem);
     -webkit-text-stroke: unset;
     text-stroke: unset;
-    text-shadow: unset;
+    text-shadow: none !important;
     @media (--md) {
       margin-left: -300px;
       font-size: clamp(2rem, 7vw, 10rem);

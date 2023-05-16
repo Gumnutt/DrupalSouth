@@ -1,0 +1,248 @@
+:root {
+  --transition: 0.25s;
+  --spark: 1.8s;
+  --button-text-color: linear-gradient(
+    var(--color-direction),
+    hsl(352, 71%, calc((var(--active) * 100%) + 77%)),
+    hsl(353, 100%, calc((var(--active) * 100%) + 93%))
+  );
+}
+
+.sparkle-button {
+  --color-direction: to left;
+  &:first-of-type {
+    --color-direction: to right;
+  }
+}
+
+button {
+  --cut: 0.1em;
+  --active: 0;
+  --bg: radial-gradient(40% 50% at center 100%, hsl(270 calc(var(--active) * 97%) 72% / var(--active)), transparent),
+    radial-gradient(80% 100% at center 120%, hsl(260 calc(var(--active) * 97%) 70% / var(--active)), transparent),
+    hsl(260 calc(var(--active) * 97%) calc((var(--active) * 44%) + 12%));
+  --button-text-color: linear-gradient(
+    var(--color-direction),
+    hsl(352, 71%, calc((var(--active) * 100%) + 77%)),
+    hsl(353, 100%, calc((var(--active) * 100%) + 93%))
+  );
+  --fancy-shadow: 0 0 calc(var(--active) * 6em) calc(var(--active) * 3em) hsl(260 97% 61% / 0.75);
+  --top-shadow: 0 0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc((var(--active) * 50%) + 30%)) inset;
+  --bottom-shadow: 0 -0.05em 0 0 hsl(260 calc(var(--active) * 97%) calc(var(--active) * 60%)) inset;
+  position: relative;
+  display: flex;
+  align-items: center;
+  scale: calc(1 + (var(--active) * 0.1));
+  transition: box-shadow var(--transition), scale var(--transition), background var(--transition);
+  box-shadow: var(--fancy-shadow), var(--top-shadow), var(--bottom-shadow);
+  border: 0;
+  border-radius: 100px;
+  padding: 0.5rem 0.8rem;
+  background: var(--bg);
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 500;
+  gap: 0.25em;
+  white-space: nowrap;
+}
+
+button:active {
+  scale: 1;
+}
+
+svg {
+  overflow: visible !important;
+}
+
+.sparkle path {
+  animation-duration: 0.6s;
+  animation-delay: calc((var(--transition) * 1.5) + (var(--delay) * 1s));
+  transition: color var(--transition);
+  color: hsl(0 0% calc((var(--active, 0) * 70%) + var(--base)));
+  transform-box: fill-box;
+  transform-origin: center;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+button:is(:hover, :focus-visible) path {
+  animation-name: bounce;
+}
+
+@keyframes bounce {
+  35%,
+  65% {
+    scale: var(--scale);
+  }
+}
+.sparkle path:nth-of-type(1) {
+  --scale: 0.5;
+  --delay: 0.1;
+  --base: 40%;
+}
+
+.sparkle path:nth-of-type(2) {
+  --scale: 1.5;
+  --delay: 0.2;
+  --base: 20%;
+}
+
+.sparkle path:nth-of-type(3) {
+  --scale: 2.5;
+  --delay: 0.35;
+  --base: 30%;
+}
+
+button:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  opacity: var(--active, 0);
+  transition: opacity var(--transition);
+  border: 0.25em solid hsl(260 97% 50% / 0.5);
+  border-radius: 100px;
+  inset: -0.25em;
+}
+
+.spark {
+  position: absolute;
+  rotate: 0deg;
+  overflow: hidden;
+  animation: flip calc(var(--spark) * 2) infinite steps(2, end);
+  border-radius: 100px;
+  inset: 0;
+  mask: linear-gradient(white, transparent 50%);
+}
+
+@keyframes flip {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.spark:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0%;
+  left: 50%;
+  opacity: calc((var(--active)) + 0.4);
+  transform: rotate(-90deg);
+  translate: -50% -15%;
+  rotate: 0;
+  animation: rotate var(--spark) linear infinite both;
+  transition: opacity var(--transition);
+  width: 200%;
+  background: conic-gradient(from 0deg, transparent 0 340deg, white 360deg);
+  aspect-ratio: 1;
+}
+
+.spark:after {
+  content: "";
+  position: absolute;
+  border-radius: 100px;
+  inset: var(--cut);
+}
+
+.backdrop {
+  position: absolute;
+  transition: background var(--transition);
+  border-radius: 100px;
+  background: var(--bg);
+  inset: var(--cut);
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(90deg);
+  }
+}
+
+@supports (selector(:has(:is(+ *)))) {
+  body:has(button:is(:hover, :focus-visible)) {
+    --active: 1;
+    --play-state: running;
+  }
+  .bodydrop {
+    display: none;
+  }
+}
+
+button:is(:hover, :focus-visible) ~ :is(.bodydrop, .particle-pen) {
+  --active: 1;
+  --play-state: runnin;
+}
+
+.bodydrop {
+  position: fixed;
+  z-index: -1;
+  background: hsl(260 calc(var(--active) * 97%) 6%);
+  inset: 0;
+}
+
+button:is(:hover, :focus-visible) {
+  --active: 1;
+  --play-state: running;
+}
+
+.sparkle-button {
+  position: relative;
+}
+
+.particle-pen {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  opacity: var(--active, 0);
+  translate: -50% -50%;
+  transition: opacity var(--transition);
+  width: 200%;
+  aspect-ratio: 1;
+  -webkit-mask: radial-gradient(white, transparent 65%);
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  z-index: -1;
+  top: calc(var(--y) * 1%);
+  left: calc(var(--x) * 1%);
+  opacity: var(--alpha, 1);
+  animation: float-out calc(var(--duration, 1) * 1s) calc(var(--delay) * -1s) infinite linear;
+  width: calc(var(--size, 0.25) * 1rem);
+  fill: white;
+  aspect-ratio: 1;
+  transform-origin: var(--origin-x, 1000%) var(--origin-y, 1000%);
+  animation-play-state: var(--play-state, paused);
+}
+
+.particle path {
+  fill: hsl(0 0% 90%);
+  stroke: none;
+}
+
+.particle:nth-of-type(even) {
+  animation-direction: reverse;
+}
+
+@keyframes float-out {
+  to {
+    rotate: 360deg;
+  }
+}
+
+.text {
+  translate: 2% -6%;
+  transition: background var(--transition);
+  background: var(--button-text-color);
+  /*background: linear-gradient(90deg, hsl(0 0% calc((var(--active) * 100%) + 65%)), hsl(0 0% calc((var(--active) * 100%) + 26%)));*/
+  -webkit-background-clip: text;
+  letter-spacing: 0.01ch;
+  color: transparent;
+}
+
+button svg {
+  translate: -25% -5%;
+  inline-size: 1.25em;
+}

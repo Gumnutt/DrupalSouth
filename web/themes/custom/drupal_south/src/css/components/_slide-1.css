@@ -15,7 +15,7 @@
     line-height: 1;
     color: black;
     place-items: center;
-    text-shadow: none;
+    text-shadow: none !important;
     -webkit-text-stroke: unset;
     text-stroke: unset;
     .highlight {

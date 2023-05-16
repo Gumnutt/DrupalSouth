@@ -1,12 +1,15 @@
 <template>
   <aside class="navigation">
-    <button @click="prev" v-if="currentIndex !== 0">Previous</button>
-    <button type="button" name="next-button" @click="next" :disabled="!currentPageValid" v-if="currentIndex !== totalPages - 1">Next</button>
-    <button :disabled="!currentPageValid" name="submit-button" type="submit" v-text="submitting ? 'Submitting' : 'Submit'"></button>
+    <SparkleButton @click="prev" v-if="currentIndex !== 0" text="Previous" />
+    <SparkleButton @click="next" :disabled="!currentPageValid" v-if="currentIndex !== totalPages - 1" text="Next slide baby" />
   </aside>
 </template>
 <script>
+import SparkleButton from "../misc/SparkleButton.vue"
 export default {
+  components: {
+    SparkleButton,
+  },
   inject: ["results"],
   props: {
     currentIndex: {
@@ -30,12 +33,29 @@ export default {
       default: false,
     },
   },
+  computed: {},
+  beforeMount() {
+    window.addEventListener("keydown", this.handleKeydown, null)
+  },
+  beforeDestroy() {
+    window.removeEventListener("keydown", this.handleKeydown)
+  },
   methods: {
     next() {
       this.$emit("next")
     },
     prev() {
       this.$emit("prev")
+    },
+    handleKeydown(e) {
+      switch (e.keyCode) {
+        case 37:
+          this.prev()
+          break
+        case 39:
+          this.next()
+          break
+      }
     },
   },
 }

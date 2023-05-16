@@ -4,6 +4,11 @@
   font-style: normal;
   font-display: swap;
 }
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
 html {
   overflow: hidden;
 }
@@ -24,7 +29,7 @@ body {
 
 form {
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .webform-submission-form {
   padding-inline: 3rem;

@@ -1,8 +1,24 @@
 .navigation {
+  --color-direction: to right;
+  --button-text-color: linear-gradient(
+    var(--color-direction),
+    hsl(352, 71%, calc((var(--active) * 100%) + 77%)),
+    hsl(353, 100%, calc((var(--active) * 100%) + 93%))
+  );
   position: absolute;
   z-index: calc(infinity + 1);
-  bottom: 38px;
+  bottom: 1rem;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-inline: 3rem;
   @media (--md) {
-    bottom: 0;
+    bottom: 4rem;
+  }
+  &:has(> :nth-child(2)) {
+    justify-content: space-between;
+  }
+  &:first-child {
+    --color-direction: to left;
   }
 }

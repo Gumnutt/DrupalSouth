@@ -7,13 +7,11 @@
     --shadow-color: black;
     font-style: italic;
     color: white;
-    text-shadow: -1px 1px var(--shadow-color), -2px 2px var(--shadow-color), -3px 3px var(--shadow-color), -4px 4px var(--shadow-color),
-      -5px 5px var(--shadow-color), -6px 6px var(--shadow-color), -7px 7px var(--shadow-color), -8px 8px var(--shadow-color),
-      -9px 9px var(--shadow-color), -10px 10px var(--shadow-color);
   }
 }
 
-[data-slide="so-whats-the-issue-with-drupal-webforms"] {
+[data-slide="so-whats-the-issue-with-drupal-webforms"],
+[data-slide="visual-aid"] {
   background: var(--orange);
 }
 
@@ -45,5 +43,13 @@
   p,
   li {
     color: white;
+  }
+}
+
+@keyframes dropshadow {
+  100% {
+    text-shadow: -1px 1px var(--shadow-color), -2px 2px var(--shadow-color), -3px 3px var(--shadow-color), -4px 4px var(--shadow-color),
+      -5px 5px var(--shadow-color), -6px 6px var(--shadow-color), -7px 7px var(--shadow-color), -8px 8px var(--shadow-color),
+      -9px 9px var(--shadow-color), -10px 10px var(--shadow-color);
   }
 }
