@@ -42,6 +42,12 @@ elements: |-
       '#attributes':
         style: scroller
       '#message_message': '<p>imacsswizard</p>'
+    processed_text_15:
+      '#type': processed_text
+      '#wrapper_attributes':
+        cursor_follow: true
+      '#text': '<drupal-media data-entity-type="media" data-entity-uuid="c6c13e11-4f47-4fbb-b11e-14dc87b7de30" data-align="center">&nbsp;</drupal-media>'
+      '#format': basic_html
   what_is_user_experience:
     '#type': webform_wizard_page
     '#title': 'What is User Experience'
@@ -102,7 +108,7 @@ elements: |-
     '#title': 'visual aid'
     processed_text_11:
       '#type': processed_text
-      '#text': '<drupal-media data-entity-type="media" data-entity-uuid="28b220f5-0a90-42db-af2a-525d67617921" data-align="center">&nbsp;</drupal-media>'
+      '#text': '<drupal-media data-entity-type="media" data-entity-uuid="ad4d4a10-07d4-4d73-9352-6d21fe23e73d" data-align="center">&nbsp;</drupal-media>'
       '#format': basic_html
   decoupled_drupal_webforms:
     '#type': webform_wizard_page
@@ -152,6 +158,8 @@ elements: |-
     make_things_sparkle:
       '#type': label
       '#title': 'Make things sparkle'
+      '#attributes':
+        sparkle: true
   framework:
     '#type': webform_wizard_page
     '#title': framework
