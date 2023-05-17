@@ -18,6 +18,13 @@
 [data-slide="take-the-good-and-replace-the-bad"] {
   background: var(--blue);
 }
+[data-slide="examples-of-bad-shit"] {
+  .grid {
+    height: 100%;
+    max-height: calc(100svh - var(--gin-toolbar-secondary-height, 0px));
+    padding-block: 4rem;
+  }
+}
 
 [data-slide="visual-aid"] {
   .grid {
@@ -30,8 +37,17 @@
     --col-number: 1;
     padding: 0;
   }
-  h1 {
+  .sparkley-title {
+    --active: 1;
+    --play-state: running;
     position: absolute;
+    display: contents;
+    width: 100%;
+    .particle-pen {
+      z-index: 0;
+    }
+  }
+  h1 {
     transform: skewY(-10deg);
     padding: 1rem;
     background: #000;

@@ -16,3 +16,15 @@
     }
   }
 }
+#crazy-face {
+  position: absolute;
+  z-index: calc(infinity + 2);
+  transform: translate(-50%, -50%);
+  animation: rock 400ms cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite alternate;
+}
+
+@keyframes rock {
+  to {
+    rotate: 15deg;
+  }
+}

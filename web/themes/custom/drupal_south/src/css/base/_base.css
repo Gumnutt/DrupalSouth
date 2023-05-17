@@ -52,3 +52,9 @@ li {
     font-size: 1.5rem;
   }
 }
+
+@keyframes pullIn {
+  from {
+    transform: translateY(100vh) rotate(-45deg) translateZ(0px);
+  }
+}

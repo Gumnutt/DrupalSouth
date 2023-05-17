@@ -28,6 +28,7 @@
     position: relative;
     z-index: 2;
     font-size: clamp(2rem, 22vw, 10rem);
+    color: black;
     -webkit-text-stroke: unset;
     text-stroke: unset;
     text-shadow: none !important;

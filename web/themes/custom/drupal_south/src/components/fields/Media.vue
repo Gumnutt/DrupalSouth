@@ -1,5 +1,8 @@
 <template>
-  <div class="media--wrapper" :style="`--column-count: ${columnCount}`" :class="columnCount > 1 ? 'wrapper-fill' : ' '">
+  <div v-if="extras.cursor_follow" class="cursor-follow" id="crazy-face">
+    <img :src="content" />
+  </div>
+  <div v-else class="media--wrapper" :style="`--column-count: ${columnCount}`" :class="columnCount > 1 ? 'wrapper-fill' : ' '">
     <img :src="content" v-for="i in columnCount * columnCount" :key="i" />
   </div>
 </template>
@@ -26,6 +29,7 @@ export default {
   mounted() {
     this.updateScreenWidth()
     this.onScreenResize()
+    this.setCrazyFace()
   },
   computed: {
     columnCount() {
@@ -43,6 +47,18 @@ export default {
     },
     updateScreenWidth() {
       this.screenWidth = window.innerWidth
+    },
+    setCrazyFace() {
+      document.addEventListener("mousemove", (event) => {
+        const crazyFace = document.getElementById("crazy-face")
+        console.log(event.clientX, event.clientY)
+        const styles = `
+          position: absolute;
+          top: ${event.clientY}px;
+          left: ${event.clientX}px;
+        `
+        crazyFace.setAttribute("style", styles)
+      })
     },
   },
 }
