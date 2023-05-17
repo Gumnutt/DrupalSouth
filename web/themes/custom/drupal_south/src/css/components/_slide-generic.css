@@ -41,8 +41,6 @@
     --active: 1;
     --play-state: running;
     position: absolute;
-    display: contents;
-    width: 100%;
     .particle-pen {
       z-index: 0;
     }
@@ -51,6 +49,7 @@
     transform: skewY(-10deg);
     padding: 1rem;
     background: #000;
+    text-align: center;
     font-variation-settings: "wght" 700;
   }
 }

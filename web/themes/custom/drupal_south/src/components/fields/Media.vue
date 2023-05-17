@@ -49,16 +49,17 @@ export default {
       this.screenWidth = window.innerWidth
     },
     setCrazyFace() {
-      document.addEventListener("mousemove", (event) => {
-        const crazyFace = document.getElementById("crazy-face")
-        console.log(event.clientX, event.clientY)
-        const styles = `
-          position: absolute;
-          top: ${event.clientY}px;
-          left: ${event.clientX}px;
-        `
-        crazyFace.setAttribute("style", styles)
-      })
+      if (this.extras.cursor_follow) {
+        document.addEventListener("mousemove", (event) => {
+          const crazyFace = document.getElementById("crazy-face")
+          const styles = `
+            position: absolute;
+            top: ${event.clientY}px;
+            left: ${event.clientX}px;
+          `
+          crazyFace.setAttribute("style", styles)
+        })
+      }
     },
   },
 }
