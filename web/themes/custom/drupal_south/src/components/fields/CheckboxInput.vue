@@ -1,6 +1,6 @@
 <template>
   <div :data-question="question">
-    <field-label :text="label" :help="help"></field-label>
+    <!-- <field-label :text="label" :help="help"></field-label> -->
     <label :for="id">
       <input v-model="current" :id="id" :type="type" :name="id" />
       <span>{{ label }}</span>
@@ -15,5 +15,6 @@ export default {
   components: { FieldLabel },
   inheritAttrs: false,
   mixins: [inputMixins],
+  computed: {},
 }
 </script>

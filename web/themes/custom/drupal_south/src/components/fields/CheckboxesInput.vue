@@ -1,6 +1,5 @@
 <template>
   <div :data-question="question">
-    <DescriptionText :text="label" :help="help"></DescriptionText>
     <div>
       <div v-for="(label, value) in options" :key="value">
         <label>

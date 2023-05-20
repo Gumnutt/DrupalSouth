@@ -29,7 +29,9 @@ export default {
   mounted() {
     this.updateScreenWidth()
     this.onScreenResize()
-    this.setCrazyFace()
+    if (this.extras.cursor_follow) {
+      this.setCrazyFace()
+    }
   },
   computed: {
     columnCount() {
@@ -49,9 +51,9 @@ export default {
       this.screenWidth = window.innerWidth
     },
     setCrazyFace() {
-      if (this.extras.cursor_follow) {
+      const crazyFace = document.getElementById("crazy-face")
+      if (crazyFace) {
         document.addEventListener("mousemove", (event) => {
-          const crazyFace = document.getElementById("crazy-face")
           const styles = `
             position: absolute;
             top: ${event.clientY}px;
